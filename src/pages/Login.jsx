@@ -2,11 +2,11 @@ import React from "react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 
-const Login = () => {
+const Login = ({ isAuth }) => {
   const SignInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        localStorage.setItem("isAuth", true);
       })
       .catch((error) => {
         console.log(error);

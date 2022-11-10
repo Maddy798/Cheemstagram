@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import NewPost from "./pages/NewPost";
 import Login from "./pages/Login";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [isAuth, setisAuth] = useState(false);
 
   return (
     <Router>
+      <NavBar />
       <Routes>
         <Route
           path='/'
@@ -21,7 +23,7 @@ function App() {
         />
         <Route
           path='/login'
-          element={<Login />}
+          element={<Login isAuth={isAuth} />}
         />
       </Routes>
     </Router>
